@@ -1,0 +1,37 @@
+$cor-pricipal: aquamarine;
+$cor-secundaria: blueviolet;
+$text-size: 120px;
+
+@mixin reset() {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin containers($cor-fundo, $cor-texto) {
+    width: 50%;
+    background-color: $cor-fundo;
+
+    .texto {
+        margin-top: 40%;
+        text-align: center;
+        font-size: $text-size;
+        color: $cor-texto;
+    }
+}
+
+body {
+    @include reset();
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+
+    .esquerdo {
+        @include containers($cor-pricipal, $cor-secundaria);
+    }
+
+    .direito {
+        @include containers($cor-secundaria, $cor-pricipal);
+    }
+}
